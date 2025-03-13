@@ -38,8 +38,12 @@ export const localStorageThunk = createAsyncThunk("url/saveLocal", async (longUr
 
 const UrlSlice = createSlice({
     name: "url",
-    initialState: { urlData:[],message:[] },
-    reducers: {},
+    initialState: { urlData:[],message:"" },
+    reducers: {
+        setMessage:(state,action)=>{
+            state.message=action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(localStorageThunk.fulfilled, (state, action) => {
             state.urlData.push(action.payload)
@@ -55,5 +59,6 @@ const UrlSlice = createSlice({
 })
 
 export const urlReducer = UrlSlice.reducer
+export const {setMessage}=UrlSlice.actions
 
 
