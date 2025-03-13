@@ -24,8 +24,13 @@ export const Urlbox = () => {
         <button onClick={handleForm} className='bg-cyan-700 text-amber-50 h-[2.5rem] px-[1rem] cursor-pointer transition active:scale-x-110 active:bg-blue-400 rounded-e-md'>Formate</button>
       </div>
       {urlData.length > 0 ? urlData.map((urls, index) => (
-        <div key={index} className='flex justify-around items-center flex-col'>
-          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem] bg-blue-200/35  w-[20rem] mb-3 flex justify-center items-center'><a href={urls.shorturl}>{urls.shorturl}</a></div>
+        <div key={index} className='flex justify-center items-center mb-2 '>
+          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem] bg-blue-200/35  w-[20rem] flex justify-center items-center '>
+          <a href={urls.shorturl}>{urls.shorturl}</a>
+          </div>
+          <div className='flex justify-center items-center'>
+            <img className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
+          </div>
         </div>
       )) : null}
     </div>
