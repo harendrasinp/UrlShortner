@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 export const Home = () => {
+
   return (
     <div className='lg:hidden flex justify-center items-center mt-[2.5rem]'>
       <div className='flex justify-between w-[15rem] text-amber-50'>
