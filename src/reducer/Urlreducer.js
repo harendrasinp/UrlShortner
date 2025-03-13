@@ -29,6 +29,7 @@ export const localStorageThunk = createAsyncThunk("url/saveLocal", async (longUr
             return urlData;
         }else{
             return thunkApi.rejectWithValue("Already Formated")
+          
         }
     }
     catch (err) {
@@ -59,10 +60,13 @@ const UrlSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(localStorageThunk.fulfilled, (state, action) => {
             state.urlData.push(action.payload)
-        })
+        }),
         builder.addCase(localStorageThunk.rejected, (state, action) => {
             state.message = action.payload
-        })
+            setTimeout(()=>{
+                state.message = ""
+            },3000)
+        }),
         builder.addCase(fetchDataFromLocalStorage.fulfilled, (state, action) => {
             state.urlData =Array.isArray(action.payload) ? action.payload : [];
         })

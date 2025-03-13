@@ -10,7 +10,7 @@ export const Error = () => {
                 </svg>
                 <span class="sr-only">Info</span>
                 <div>
-                    <span class="font-medium">{message} To Formate</span> 
+                    <span class="font-medium">{message}</span> 
                 </div>
             </div>
         </div>

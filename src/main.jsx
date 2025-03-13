@@ -7,6 +7,7 @@ import App from './App.jsx'
 import { Navbar } from './Component/Navbar.jsx'
 import { Home } from './Component/Home.jsx'
 import store from '../store.js'
+import { Footer } from './Component/Footer.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Navbar />
         <Home />
         <App />
+        <Footer/>
       </BrowserRouter>
     </Provider>
   </StrictMode>,

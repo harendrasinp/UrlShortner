@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Error } from './Error'
-import { localStorageThunk, fetchDataFromLocalStorage, setMessage,deletThunk } from '../reducer/Urlreducer'
+import { localStorageThunk, fetchDataFromLocalStorage, setMessage, deletThunk } from '../reducer/Urlreducer'
 export const Urlbox = () => {
   const [url, setUrl] = useState("");
 
@@ -11,19 +11,20 @@ export const Urlbox = () => {
   // ----------------------------------useEffect-----------------------------------
   useEffect(() => {
     dispatch(fetchDataFromLocalStorage())
-  },[dispatch]);
+  }, [dispatch]);
   // -----------------------------------function-----------------------------------
   const handleForm = () => {
     if (url) {
       dispatch(localStorageThunk(url))
       setUrl("")
+      return 
     }
     dispatch(setMessage("Please Enter Long Url"))
     setTimeout(() => {
       dispatch(setMessage(""))
     }, 3000)
   }
-  const deleteurl=(urls)=>{
+  const deleteurl = (urls) => {
     dispatch(deletThunk(urls))
     dispatch(fetchDataFromLocalStorage())
   }
@@ -39,14 +40,14 @@ export const Urlbox = () => {
         {/* ---------------------------------Error------------------------------------------ */}
         <div className='flex justify-center items-center h-[5rem]'>{message ? <Error /> : null}</div>
       </div>
-    {/* ----------------------------------------------Short URL Part------------------------------------------- */}
+      {/* ----------------------------------------------Short URL Part------------------------------------------- */}
       {urlData.length > 0 ? urlData.map((urls, index) => (
         <div key={index} className='flex justify-center items-center mb-2 '>
           <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem] bg-blue-200/35  w-[20rem] flex justify-center items-center '>
-            <a href={urls.shorturl}  target='_blank'>{urls.shorturl}</a>
+            <a href={urls.shorturl} target='_blank'>{urls.shorturl}</a>
           </div>
           <div className='flex justify-center items-center'>
-            <img onClick={()=>deleteurl(urls)} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
+            <img onClick={() => deleteurl(urls)} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
           </div>
         </div>
       )) : null}
