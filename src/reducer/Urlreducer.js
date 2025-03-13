@@ -63,9 +63,6 @@ const UrlSlice = createSlice({
         }),
         builder.addCase(localStorageThunk.rejected, (state, action) => {
             state.message = action.payload
-            setTimeout(()=>{
-                state.message = ""
-            },3000)
         }),
         builder.addCase(fetchDataFromLocalStorage.fulfilled, (state, action) => {
             state.urlData =Array.isArray(action.payload) ? action.payload : [];

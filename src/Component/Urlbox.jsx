@@ -12,6 +12,13 @@ export const Urlbox = () => {
   useEffect(() => {
     dispatch(fetchDataFromLocalStorage())
   }, [dispatch]);
+
+
+  useEffect(()=>{
+    setTimeout(() => {
+      dispatch(setMessage(""))
+    },3000)
+  },[message]);
   // -----------------------------------function-----------------------------------
   const handleForm = () => {
     if (url) {
@@ -20,9 +27,6 @@ export const Urlbox = () => {
       return 
     }
     dispatch(setMessage("Please Enter Long Url"))
-    setTimeout(() => {
-      dispatch(setMessage(""))
-    }, 3000)
   }
   const deleteurl = (urls) => {
     dispatch(deletThunk(urls))
