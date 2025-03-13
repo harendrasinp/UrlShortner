@@ -25,7 +25,7 @@ export const Urlbox = () => {
       </div>
       {urlData.length > 0 ? urlData.map((urls, index) => (
         <div key={index} className='flex justify-around items-center flex-col'>
-          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem] bg-blue-200/35  w-[20rem] mb-3 flex justify-center items-center'><Link to={`http://localhost:3000/${urls.shorturl}`}>http://localhost:3000/{urls.shorturl}</Link></div>
+          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem] bg-blue-200/35  w-[20rem] mb-3 flex justify-center items-center'><a href={`http://localhost:3000/${urls.shorturl}`}target="_blank">http://localhost:3000/{urls.shorturl}</a></div>
         </div>
       )) : null}
     </div>
