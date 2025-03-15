@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Navbar/>
         <Home/>
         <App/>
-        <div className='mt-[8.5rem]'>
+        <div className='fixed bottom-0 w-full'>
           <Footer/>
         </div>
       </BrowserRouter>
