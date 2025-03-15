@@ -22,13 +22,13 @@ export const Urlbox = () => {
   // -----------------------------------function-----------------------------------
   const handleForm = (e) => {
     e.preventDefault()
-    if (url) {
+    if (url && urltitle ) {
       dispatch(localStorageThunk({url,urltitle}));
       setUrl("");
       setTitle("");
       return 
     }
-    dispatch(setMessage("Please Enter Long Url"))
+    dispatch(setMessage("All field are required."))
   }
   const deleteurl = (urls) => {
     dispatch(deletThunk(urls))
