@@ -13,10 +13,12 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Navbar />
-        <Home />
-        <App />
-        <Footer/>
+        <Navbar/>
+        <Home/>
+        <App/>
+        <div className='mt-[9.5rem]'>
+          <Footer/>
+        </div>
       </BrowserRouter>
     </Provider>
   </StrictMode>,
