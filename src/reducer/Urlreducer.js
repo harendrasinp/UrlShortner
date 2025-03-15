@@ -14,13 +14,20 @@ export const fetchDataFromLocalStorage=createAsyncThunk("url/fetch",async(_,thun
     }
 })
 
-export const localStorageThunk = createAsyncThunk("url/saveLocal", async (longUrl, thunkApi) => {
+export const localStorageThunk = createAsyncThunk("url/saveLocal", async (payload, thunkApi) => {
+    console.log(payload)
+    const {urltitle,url}=payload
+    console.log(urltitle)
+    console.log(url)
     try {
         const short = Math.random().toString(36).substring(2, 2 + 8);
+
         const urlData = {
+            title:urltitle,
             shorturl: short,
-            longurl: longUrl
+            longurl: url
         }
+
         let localStorageData = JSON.parse(localStorage.getItem("userUrl")) || [];
         const data = localStorageData.filter((url) => url.longurl===longUrl)
         if (!data.length > 0) {
