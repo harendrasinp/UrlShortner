@@ -40,7 +40,7 @@ export const Urlbox = () => {
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
       <div className='w-full mt-[8rem] flex justify-around items-center flex-col'>
         <form onSubmit={handleForm}>
-          <input type="text" value={urltitle} onChange={(e) => setTitle(e.target.value)} placeholder='Title' className='bg-blue-200/35 w-[3rem] h-[2.5rem] mr-[0.2rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[8rem]' />
+          <input type="text" maxLength={8} value={urltitle} onChange={(e) => setTitle(e.target.value)} placeholder='Title' className='bg-blue-200/35 w-[3rem] h-[2.5rem] mr-[0.2rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[8rem]' />
 
           <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder='Past Your Url to Short' className='bg-blue-200/35 w-[12rem] h-[2.5rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[28rem]' />
 
