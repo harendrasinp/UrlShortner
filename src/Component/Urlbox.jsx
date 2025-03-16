@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Error } from './Error';
 import { DeleteUrl } from './DeleteUrl';
-import { localStorageThunk, fetchDataFromLocalStorage, setMessage,setIsOpen, deletThunk } from '../reducer/Urlreducer'
+import { localStorageThunk, fetchDataFromLocalStorage, setMessage, setIsOpen, deletThunk } from '../reducer/Urlreducer'
 export const Urlbox = () => {
   const [url, setUrl] = useState("");
   const [urltitle, setTitle] = useState("");
@@ -14,28 +14,28 @@ export const Urlbox = () => {
     dispatch(fetchDataFromLocalStorage())
   }, [dispatch]);
 
-  useEffect(()=>{
-    const timer=setTimeout(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
       dispatch(setMessage(""))
       console.log("error1")
-    },3000)
+    }, 3000)
     return () => clearTimeout(timer);
-  },[message]);
+  }, [message]);
   // -----------------------------------function-----------------------------------
   const handleForm = (e) => {
     e.preventDefault()
-    if (url && urltitle ) {
-      dispatch(localStorageThunk({url,urltitle}));
+    if (url && urltitle) {
+      dispatch(localStorageThunk({ url, urltitle }));
       setUrl("");
       setTitle("");
-      return 
+      return
     }
     dispatch(setMessage("All field are required."))
   }
   // ------------------------------------Return-------------------------------------
   return (
-    <div>
-     <DeleteUrl/>
+    <div className='flex justify-center flex-col items-center'>
+      <DeleteUrl />
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
       <div className='w-full mt-[8rem] flex justify-around items-center flex-col'>
         <form onSubmit={handleForm}>
@@ -49,22 +49,22 @@ export const Urlbox = () => {
         <div className='flex justify-center items-center h-[5rem]'>{message ? <Error /> : null}</div>
       </div>
       {/* ----------------------------------------------Short URL Part------------------------------------------- */}
-      {urlData.length > 0 ? urlData.map((urls, index) => (
-        <div key={index} className='flex justify-center items-center mb-2 '>
-          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '>
-            {urls.title}
+      <div className="h-[8rem] w-full overflow-y-auto -mt-8 lg:w-[35rem]">
+        {urlData.length > 0 ? urlData.map((urls, index) => (
+          <div key={index} className='flex justify-center items-center mb-2'>
+            <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '>
+              {urls.title}
+            </div>
+            <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35  w-[12rem] flex justify-center items-center lg:w-[25rem] '>
+              <a href={urls.shorturl} target='_blank'>{urls.shorturl}</a>
+            </div>
+            <div className='flex justify-center items-center'>
+              <img onClick={() => dispatch(setIsOpen(urls))} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
+            </div>
+
           </div>
-          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35  w-[12rem] flex justify-center items-center lg:w-[25rem] '>
-            <a href={urls.shorturl} target='_blank'>{urls.shorturl}</a>
-          </div>
-          {/* <div className='flex justify-center items-center'>
-            <img onClick={() => deleteurl(urls)} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
-          </div> */}
-          <div className='flex justify-center items-center'>
-            <img onClick={()=>dispatch(setIsOpen(urls))} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
-          </div>
-        </div>
-      )) : null}
+        )) : null}
+      </div>
     </div>
 
   )
