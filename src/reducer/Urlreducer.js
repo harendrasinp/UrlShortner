@@ -29,7 +29,7 @@ export const localStorageThunk = createAsyncThunk("url/saveLocal", async (payloa
         }
 
         let localStorageData = JSON.parse(localStorage.getItem("userUrl")) || [];
-        const data = localStorageData.filter((url) => url.longurl===longUrl)
+        const data = localStorageData.filter((data) => data.longurl===url)
         if (!data.length > 0) {
             localStorageData.push(urlData)
             localStorage.setItem("userUrl", JSON.stringify(localStorageData));
@@ -58,18 +58,25 @@ export const deletThunk=createAsyncThunk("url/delete",async(urldata,thunkApi)=>{
 
 const UrlSlice = createSlice({
     name: "url",
-    initialState: { urlData:[],message:"" },
+    initialState: {urlData:[],message:"",isOpen:false,deleteItem:null },
     reducers: {
         setMessage:(state,action)=>{
             state.message=action.payload
         },
+        setIsOpen:(state,action)=>{
+            state.isOpen=true,
+            state.deleteItem=action.payload
+        },
+        setClose:(state,action)=>{
+            state.isOpen=false
+        }   
     },
     extraReducers: (builder) => {
         builder.addCase(localStorageThunk.fulfilled, (state, action) => {
-            state.urlData.push(action.payload)
+            state.urlData.push(action.payload);
         }),
         builder.addCase(localStorageThunk.rejected, (state, action) => {
-            state.message = action.payload
+            state.message = action.payload;
         }),
         builder.addCase(fetchDataFromLocalStorage.fulfilled, (state, action) => {
             state.urlData =Array.isArray(action.payload) ? action.payload : [];
@@ -79,6 +86,6 @@ const UrlSlice = createSlice({
 })
 
 export const urlReducer = UrlSlice.reducer
-export const {setMessage}=UrlSlice.actions
+export const {setMessage,setIsOpen,setClose}=UrlSlice.actions
 
 

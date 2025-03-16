@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Error } from './Error'
-import { localStorageThunk, fetchDataFromLocalStorage, setMessage, deletThunk } from '../reducer/Urlreducer'
+import { Error } from './Error';
+import { DeleteUrl } from './DeleteUrl';
+import { localStorageThunk, fetchDataFromLocalStorage, setMessage,setIsOpen, deletThunk } from '../reducer/Urlreducer'
 export const Urlbox = () => {
   const [url, setUrl] = useState("");
   const [urltitle, setTitle] = useState("");
 
   const { urlData, message } = useSelector((state) => state.url)
   const dispatch = useDispatch();
-  console.log(message)
   // ----------------------------------useEffect-----------------------------------
   useEffect(() => {
     dispatch(fetchDataFromLocalStorage())
   }, [dispatch]);
 
   useEffect(()=>{
-    setTimeout(() => {
+    const timer=setTimeout(() => {
       dispatch(setMessage(""))
+      console.log("error1")
     },3000)
+    return () => clearTimeout(timer);
   },[message]);
   // -----------------------------------function-----------------------------------
   const handleForm = (e) => {
@@ -30,13 +32,10 @@ export const Urlbox = () => {
     }
     dispatch(setMessage("All field are required."))
   }
-  const deleteurl = (urls) => {
-    dispatch(deletThunk(urls))
-    dispatch(fetchDataFromLocalStorage())
-  }
   // ------------------------------------Return-------------------------------------
   return (
     <div>
+     <DeleteUrl/>
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
       <div className='w-full mt-[8rem] flex justify-around items-center flex-col'>
         <form onSubmit={handleForm}>
@@ -52,14 +51,17 @@ export const Urlbox = () => {
       {/* ----------------------------------------------Short URL Part------------------------------------------- */}
       {urlData.length > 0 ? urlData.map((urls, index) => (
         <div key={index} className='flex justify-center items-center mb-2 '>
-          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-auto px-2 flex justify-center items-center '>
+          <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '>
             {urls.title}
           </div>
           <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35  w-[12rem] flex justify-center items-center lg:w-[25rem] '>
             <a href={urls.shorturl} target='_blank'>{urls.shorturl}</a>
           </div>
-          <div className='flex justify-center items-center'>
+          {/* <div className='flex justify-center items-center'>
             <img onClick={() => deleteurl(urls)} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
+          </div> */}
+          <div className='flex justify-center items-center'>
+            <img onClick={()=>dispatch(setIsOpen(urls))} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
           </div>
         </div>
       )) : null}
