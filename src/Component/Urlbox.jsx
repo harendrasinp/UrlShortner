@@ -34,7 +34,7 @@ export const Urlbox = () => {
   }
   // ------------------------------------Return-------------------------------------
   return (
-    <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)] lg:min-h-[calc(100vh-320px)]'>
+    <div className='justify-center flex-col items-center min-h-[calc(100vh-450px)] lg:min-h-[calc(100vh-280px)]'>
       <DeleteUrl />
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
       <div className='w-full flex justify-around items-center flex-col'>
