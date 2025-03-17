@@ -49,7 +49,7 @@ export const Urlbox = () => {
         <div className='flex justify-center items-center h-[5rem]'>{message ? <Error /> : null}</div>
       </div>
       {/* ----------------------------------------------Short URL Part------------------------------------------- */}
-      <div className="max-h-[13.5rem]  w-full overflow-y-auto ml-auto mr-auto">
+      <div className="w-full overflow-y-auto ml-auto mr-auto">
         {urlData.length > 0 ? urlData.map((urls, index) => (
           <div key={index} className='flex justify-center items-center mb-2'>
             <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '>
@@ -61,7 +61,6 @@ export const Urlbox = () => {
             <div className='flex justify-center items-center'>
               <img onClick={() => dispatch(setIsOpen(urls))} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
             </div>
-
           </div>
         )) : null}
       </div>
