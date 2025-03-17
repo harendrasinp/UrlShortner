@@ -7,7 +7,7 @@ function App() {
   return (
     <>
      <Routes>
-        <Route path='/HomePage' element={<HomePage/>}/>
+        <Route path='/' element={<HomePage/>}/>
         <Route path='/ulrShortner' element={<Urlbox/>}/>
         <Route path='/weather' element={<Weather/>}/>
         <Route path='/:shorturl' element={<Redirect/>}/>

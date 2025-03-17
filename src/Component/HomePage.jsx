@@ -2,7 +2,7 @@ import React from 'react'
 
 export const HomePage = () => {
   return (
-    <div className='absolute w-full h-[25rem] mt-[8rem] flex justify-center items-center flex-col lg:mt-[2.8rem]'>
+    <div className='w-full min-h-[calc(100vh-200px)] flex justify-center items-center flex-col'>
       <div className='text-amber-50 font-bold'>Welcome to SmartTool</div>
       <div className='flex justify-center items-center flex-col'>
         <div className='text-amber-100 font-semibold'>UrlShortner</div>

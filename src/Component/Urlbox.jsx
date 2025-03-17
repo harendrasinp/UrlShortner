@@ -34,11 +34,11 @@ export const Urlbox = () => {
   }
   // ------------------------------------Return-------------------------------------
   return (
-    <div className='flex justify-center flex-col items-center'>
+    <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)]'>
       <DeleteUrl />
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
-      <div className='w-full mt-[8rem] flex justify-around items-center flex-col'>
-        <form onSubmit={handleForm}>
+      <div className='w-full flex justify-around items-center flex-col'>
+        <form onSubmit={handleForm} className='mt-5'>
           <input type="text" maxLength={8} value={urltitle} onChange={(e) => setTitle(e.target.value)} placeholder='Title' className='bg-blue-200/35 w-[3rem] h-[2.5rem] mr-[0.2rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[8rem]' />
 
           <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder='Past Your Url to Short' className='bg-blue-200/35 w-[12rem] h-[2.5rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[28rem]' />
@@ -49,7 +49,7 @@ export const Urlbox = () => {
         <div className='flex justify-center items-center h-[5rem]'>{message ? <Error /> : null}</div>
       </div>
       {/* ----------------------------------------------Short URL Part------------------------------------------- */}
-      <div className="h-[8rem] w-full overflow-y-auto -mt-8 lg:w-[35rem]">
+      <div className="h-[13.5rem] w-full overflow-y-auto mb-5 -mt-15 lg:w-[35rem]">
         {urlData.length > 0 ? urlData.map((urls, index) => (
           <div key={index} className='flex justify-center items-center mb-2'>
             <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '>
