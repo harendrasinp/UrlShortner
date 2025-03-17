@@ -17,7 +17,9 @@ createRoot(document.getElementById('root')).render(
         <div className='z-10 w-full flex justify-center items-center'><img className='w-[6rem]' src="https://cdn-icons-png.flaticon.com/128/15532/15532705.png" alt="car" /></div>
         <Home />
         <App />
-        <Footer />
+        <div className='bottom-0 w-full'>
+          <Footer />
+        </div>
       </BrowserRouter>
     </Provider>
   </StrictMode>,
