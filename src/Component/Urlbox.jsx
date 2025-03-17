@@ -34,7 +34,7 @@ export const Urlbox = () => {
   }
   // ------------------------------------Return-------------------------------------
   return (
-    <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)]'>
+    <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)] lg:min-h-[calc(100vh-320px)]'>
       <DeleteUrl />
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
       <div className='w-full flex justify-around items-center flex-col'>
@@ -49,7 +49,7 @@ export const Urlbox = () => {
         <div className='flex justify-center items-center h-[5rem]'>{message ? <Error /> : null}</div>
       </div>
       {/* ----------------------------------------------Short URL Part------------------------------------------- */}
-      <div className="h-[13.5rem] w-full overflow-y-auto mb-5 -mt-15 lg:w-[35rem]">
+      <div className="max-h-[13.5rem]  w-full overflow-y-auto ml-auto mr-auto">
         {urlData.length > 0 ? urlData.map((urls, index) => (
           <div key={index} className='flex justify-center items-center mb-2'>
             <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '>
