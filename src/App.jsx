@@ -1,13 +1,15 @@
 import { Routes, Route} from 'react-router-dom'
-import { Urlcollection } from './Component/Urlcollection'
+import { HomePage } from './Component/HomePage'
+import { Weather } from './Component/Weather'
 import { Urlbox } from './Component/Urlbox'
 import { Redirect } from './Component/Redirect'
 function App() {
   return (
     <>
      <Routes>
-        <Route path='/' element={<Urlbox/>}/>
-        <Route path='/urls-collection' element={<Urlcollection/>}/>
+        <Route path='/HomePage' element={<HomePage/>}/>
+        <Route path='/ulrShortner' element={<Urlbox/>}/>
+        <Route path='/weather' element={<Weather/>}/>
         <Route path='/:shorturl' element={<Redirect/>}/>
      </Routes>
     </>
