@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { urlReducer } from "./src/reducer/Urlreducer";
+import { weatherStore } from "./src/reducer/Weather";
 const store=configureStore({
     reducer:{
-        url:urlReducer
+        url:urlReducer,
+        weather:weatherStore,
     }
 })
 

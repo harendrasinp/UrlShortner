@@ -17,7 +17,6 @@ export const Urlbox = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(setMessage(""))
-      console.log("error1")
     }, 3000)
     return () => clearTimeout(timer);
   }, [message]);
