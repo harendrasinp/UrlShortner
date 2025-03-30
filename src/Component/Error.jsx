@@ -2,6 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 export const Error = () => {
     const {message}=useSelector((state)=>state.url)
+    const {errorWeather}=useSelector((state)=>state.weather)
+
+    const errorMessage = message || errorWeather;
+    if(!errorMessage){
+        return
+    }
     return (
         <div>
             <div className="flex items-center p-2  w-[18rem] animate-bounce text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -10,7 +16,7 @@ export const Error = () => {
                 </svg>
                 <span className="sr-only">Info</span>
                 <div>
-                    <span className="font-medium">{message}</span> 
+                    <span className="font-medium">{errorMessage}</span> 
                 </div>
             </div>
         </div>
