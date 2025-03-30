@@ -11,7 +11,7 @@ export const Navbar = () => {
           <div className='text-amber-50'><Link to={"/weather"}>Weather</Link></div>
         </div>
       </div>
-      <div className='w-[8rem] h-[8rem] -mt-5'>
+      <div className='hidden lg:flex lg:w-[8rem] h-[8rem] -mt-5'>
         <img src="./appimage.png" alt="appImage" />
       </div>
     </div>
