@@ -3,12 +3,14 @@ import { Footer } from './Footer'
 import { Navbar } from './Navbar'
 import { Outlet } from 'react-router-dom'
 import { MobNav } from './MobNav'
+import { useSelector } from 'react-redux'
 
 export const AppLayout = () => {
+  const {menu} = useSelector((state) => state.mobile)
     return (
         <div className='flex flex-col min-h-screen'>
-            <Navbar />
-            <MobNav/>
+            <Navbar/>
+            {menu?<MobNav/>:null}
             <main className='flex-1'>
                 <Outlet />
             </main>
