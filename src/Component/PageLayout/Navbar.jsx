@@ -8,7 +8,7 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   console.log(menu)
   return (
-    <div className='flex flex-col justify-center'>
+    <div className='flex flex-col items-center justify-center'>
       <div className="flex justify-center items-center w-full h-[4rem] bg-slate-950/80 lg:flex lg:justify-between">
 
         <div className="text-amber-50 font-semibold w-[4rem] text-[1.4rem] ml-auto lg:ml-[5rem]">SmartTools</div>
