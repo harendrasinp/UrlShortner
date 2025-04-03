@@ -13,7 +13,6 @@ body {
 }
 
 .open {
-    width:100vw;
     position: absolute;
     top: 0;
     right: 0;
