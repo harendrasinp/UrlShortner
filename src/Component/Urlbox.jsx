@@ -34,7 +34,7 @@ export const Urlbox = () => {
   }
   // ------------------------------------Return-------------------------------------
   return (
-    <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)] lg:min-h-[calc(100vh-280px)]'>
+    <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)]'>
       <DeleteUrl />
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
       <motion.div className='w-full flex justify-around items-center flex-col'
@@ -42,13 +42,13 @@ export const Urlbox = () => {
         animate={{y:0,opacity:1}}
         transition={{duration:1}}
         >
-        <div className='text-3xl font-semibold text-blue-950'>Url Shortner</div>
+        <div className='text-3xl font-semibold text-slate-300/80'>Url Shortner</div>
         <form onSubmit={handleForm} className='flex mt-3'>
-          <input type="text" maxLength={8} value={urltitle} onChange={(e) => setTitle(e.target.value)} placeholder='Title' className='bg-blue-950 w-[3rem] h-[2.5rem] mr-[0.2rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[8rem]' />
+          <input type="text" maxLength={8} value={urltitle} onChange={(e) => setTitle(e.target.value)} placeholder='Title' className='bg-blue-400/35 w-[3rem] h-[2.5rem] mr-[0.2rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[8rem]' />
 
-          <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder='Past Your Url to Short' className='bg-blue-950 w-[12rem] h-[2.5rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[28rem]' />
+          <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder='Past Your Url to Short' className='bg-blue-400/35 w-[12rem] h-[2.5rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[28rem]' />
 
-          <button type='submit' className='bg-cyan-700 text-amber-50 h-[2.5rem] px-[1rem] cursor-pointer transition active:scale-x-110 active:bg-blue-400 rounded-e-md'>Formate</button>
+          <button type='submit' className='bg-cyan-900 text-amber-50 h-[2.5rem] px-[1rem] cursor-pointer transition active:scale-x-110 active:bg-blue-400 rounded-e-md'>Formate</button>
         </form>
         {/* ---------------------------------Error------------------------------------------ */}
         <div className='flex justify-center items-center h-[5rem]'>{message ? <Error /> : null}</div>
@@ -57,14 +57,14 @@ export const Urlbox = () => {
       <div className="w-full overflow-y-auto ml-auto mr-auto">
         {urlData.length > 0 ? urlData.map((urls, index) => (
           <div key={index} className='flex justify-center items-center mb-2'>
-            <motion.div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-950 mr-0.5  w-[5rem] px-2 flex justify-center items-center '
+            <motion.div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-400/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '
             initial={{y:100,opacity:0}}
             animate={{y:0,opacity:1}}
             transition={{duration:1}}
             >
               {urls.title}
             </motion.div>
-            <motion.div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-950  w-[12rem] flex justify-center items-center lg:w-[25rem] '
+            <motion.div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-400/35  w-[12rem] flex justify-center items-center lg:w-[25rem] '
             initial={{y:100,opacity:0}}
             animate={{y:0,opacity:1}}
             transition={{duration:1}}
@@ -77,7 +77,7 @@ export const Urlbox = () => {
             animate={{y:0,opacity:1}}
             transition={{duration:1}}
             >
-              <img onClick={() => dispatch(setIsOpen(urls))} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/16597/16597093.png" alt="delete" />
+              <img onClick={() => dispatch(setIsOpen(urls))} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/11480/11480470.png" alt="delete" />
             </motion.div>
           </div>
         )) : null}
