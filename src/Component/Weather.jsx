@@ -29,7 +29,7 @@ useEffect(()=>{
 
   return (
     <div className='flex justify-center mb-2'>
-      <div className="h-[20rem] w-[23rem] bg-[url('/weather.jpg')] bg-cover rounded-2xl shadow-amber-50  lg:w-[55rem]">
+      <div className="h-[20rem] w-[23rem] bg-[url('/weather.jpg')] bg-cover rounded-md shadow-amber-50  lg:w-[55rem]">
         <div className='text-amber-100 font-bold text-[1.9rem] flex justify-center items-center'>Weather</div>
         <div className='flex justify-center items-center flex-col'>
           <form onSubmit={weatherData} className='flex justify-center items-center'>
