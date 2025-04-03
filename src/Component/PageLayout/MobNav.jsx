@@ -8,7 +8,7 @@ export const MobNav = () => {
   const dispatch = useDispatch()
   return (
     <div className={`lg:hidden flex flex-col h-[100vh]  bg-white/90 ${menu?"open":"close"}`}>
-      <div className='flex justify-end w-full h-[4rem]  items-center'>
+      <div className='flex justify-end h-[4rem]  items-center'>
         {menu ? <img className='lg:hidden w-[2rem] h-[2rem]' onClick={() => dispatch(setMenu(false))} src="https://cdn-icons-png.flaticon.com/128/18513/18513166.png" alt="three line" />
           : null}
       </div>

@@ -34,7 +34,7 @@ export const Urlbox = () => {
   }
   // ------------------------------------Return-------------------------------------
   return (
-    <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)]'>
+    <div className='justify-center flex-col items-center'>
       <DeleteUrl />
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
       <motion.div className='w-full flex justify-around items-center flex-col'
