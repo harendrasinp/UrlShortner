@@ -37,7 +37,11 @@ export const Urlbox = () => {
     <div className='justify-center flex-col items-center min-h-[calc(100vh-350px)] lg:min-h-[calc(100vh-280px)]'>
       <DeleteUrl />
       {/* -----------------------------------------Input Box and Error message---------------------------------- */}
-      <div className='w-full flex justify-around items-center flex-col'>
+      <motion.div className='w-full flex justify-around items-center flex-col'
+        initial={{y:-100,opacity:0}}
+        animate={{y:0,opacity:1}}
+        transition={{duration:1}}
+      >
         <form onSubmit={handleForm} className='mt-5'>
           <input type="text" maxLength={8} value={urltitle} onChange={(e) => setTitle(e.target.value)} placeholder='Title' className='bg-blue-200/35 w-[3rem] h-[2.5rem] mr-[0.2rem] focus:outline-none text-amber-50 text-center font-bold  rounded-[2px] lg:w-[8rem]' />
 
@@ -47,7 +51,7 @@ export const Urlbox = () => {
         </form>
         {/* ---------------------------------Error------------------------------------------ */}
         <div className='flex justify-center items-center h-[5rem]'>{message ? <Error /> : null}</div>
-      </div>
+      </motion.div>
       {/* ----------------------------------------------Short URL Part------------------------------------------- */}
       <div className="w-full overflow-y-auto ml-auto mr-auto">
         {urlData.length > 0 ? urlData.map((urls, index) => (
