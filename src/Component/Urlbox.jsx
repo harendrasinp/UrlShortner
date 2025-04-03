@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux'
 import { Error } from './Error';
 import { DeleteUrl } from './DeleteUrl';
@@ -51,15 +52,28 @@ export const Urlbox = () => {
       <div className="w-full overflow-y-auto ml-auto mr-auto">
         {urlData.length > 0 ? urlData.map((urls, index) => (
           <div key={index} className='flex justify-center items-center mb-2'>
-            <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '>
+            <motion.div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35 mr-0.5  w-[5rem] px-2 flex justify-center items-center '
+            initial={{y:100,opacity:0}}
+            animate={{y:0,opacity:1}}
+            transition={{duration:1}}
+            >
               {urls.title}
-            </div>
-            <div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35  w-[12rem] flex justify-center items-center lg:w-[25rem] '>
+            </motion.div>
+            <motion.div className='text-amber-100 text-[1.2rem] rounded-[0.2rem]  bg-blue-200/35  w-[12rem] flex justify-center items-center lg:w-[25rem] '
+            initial={{y:100,opacity:0}}
+            animate={{y:0,opacity:1}}
+            transition={{duration:1}}
+            >
               <a href={urls.shorturl} target='_blank'>{urls.shorturl}</a>
-            </div>
-            <div className='flex justify-center items-center'>
+              
+            </motion.div>
+            <motion.div className='flex justify-center items-center'
+            initial={{y:100,opacity:0}}
+            animate={{y:0,opacity:1}}
+            transition={{duration:1}}
+            >
               <img onClick={() => dispatch(setIsOpen(urls))} className='w-[1.5rem] h-[1.5rem] cursor-pointer ' src="https://cdn-icons-png.flaticon.com/128/3221/3221897.png" alt="delete" />
-            </div>
+            </motion.div>
           </div>
         )) : null}
       </div>
