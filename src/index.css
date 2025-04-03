@@ -16,7 +16,7 @@ body {
 }
 
 .open {
-    width: 100vw;
+    width:100%;
     position: absolute;
     top: 0;
     right: 0;
@@ -34,7 +34,7 @@ body {
 }
 
 .close {
-    width:0vw;
+    width:0px;
     position: absolute;
     top: 0;
     right: 0;
@@ -45,7 +45,7 @@ body {
 @keyframes menuclose {
 
     from{
-        transform: translateX(0%);
+        transform: translateX(0px);
     }
     to {
         transform: translateX(100%);
