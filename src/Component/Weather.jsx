@@ -7,6 +7,7 @@ export const Weather = () => {
   const [city, setCity] = useState("")
   const dispatch = useDispatch()
   const { data, errorWeather } = useSelector((state) => state.weather)
+  console.log(data)
 // ------------------------------UseEffect------------------------------------------
 useEffect(()=>{
   const timer=setTimeout(()=>{
@@ -41,10 +42,16 @@ useEffect(()=>{
             {data?
               <div className=''>
                 <div className='text-amber-600 font-bold flex justify-center items-center text-[1.5rem]'>{data.name}</div>
-                <div className='w-[20rem] bg-amber-50/35 flex justify-between'>
+                <div className='w-[20rem] bg-amber-50/35 flex justify-between mb-0.5'>
                   <div className='flex justify-center items-center px-5 text-blue-950 font-semibold'>Temp</div>
                   <div className='flex justify-center items-center font-sans text-blue-950 font-semibold'>{data.main.temp} {"\u00B0C"}
                     <img className='w-[2rem] h-[2rem]' src='https://cdn-icons-png.flaticon.com/128/12500/12500169.png' alt='sun' />
+                  </div>
+                </div>
+                <div className='w-[20rem] bg-amber-50/35 flex justify-between mb-0.5'>
+                  <div className='flex justify-center items-center px-5 text-blue-950 font-semibold'>Wind Speed</div>
+                  <div className='flex justify-center items-center font-sans text-blue-950 font-semibold'>{data.wind.speed} Km/h 
+                  <img className='w-[2rem] h-[2rem]' src='https://cdn-icons-png.flaticon.com/128/9367/9367416.png' alt='sun' />
                   </div>
                 </div>
               </div>

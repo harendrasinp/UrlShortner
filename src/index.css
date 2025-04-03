@@ -22,7 +22,7 @@ body {
 
 @keyframes menuOpen {
     from{
-        transform: translateX(100%);
+        transform: translateX(100vw);
     }
 
     to{
@@ -42,7 +42,7 @@ body {
 @keyframes menuclose {
 
     from{
-        transform: translateX(0px);
+        transform: translateX(0);
     }
     to {
         transform: translateX(100%);
