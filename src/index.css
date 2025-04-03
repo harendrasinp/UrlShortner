@@ -17,7 +17,10 @@ body {
 
 .open {
     width: 100vw;
-    animation: menuOpen 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: menuOpen 0.5s ease-in-out forwards;
 }
 
 @keyframes menuOpen {
@@ -31,15 +34,19 @@ body {
 }
 
 .close {
-    width:100vw;
-    animation: menuclose 0.5s ease-in-out;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: menuclose 0.5s ease-in-out forwards;
 }
 
 @keyframes menuclose {
+
     from{
-        transform: translateX(100%);
+        transform: translateX(0%);
     }
     to {
-        transform: translateX(0%);
+        transform: translateX(100%);
     }
 }
