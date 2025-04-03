@@ -6,11 +6,13 @@ import { MobNav } from './MobNav'
 import { useSelector } from 'react-redux'
 
 export const AppLayout = () => {
-  const {menu} = useSelector((state) => state.mobile)
+    const { menu } = useSelector((state) => state.mobile)
     return (
         <div className='flex flex-col min-h-screen'>
-            <Navbar/>
-            {menu?<MobNav/>:null}
+            <Navbar />
+            <div className='absolute self-end'>
+                {menu ? <MobNav /> : null}
+            </div>
             <main className='flex-1'>
                 <Outlet />
             </main>
