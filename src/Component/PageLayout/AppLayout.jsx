@@ -10,7 +10,7 @@ export const AppLayout = () => {
     return (
         <div className='flex flex-col min-h-screen'>
             <Navbar />
-            <div className='absolute self-end'>
+            <div className='self-end'>
                 {/* {menu ? <MobNav /> : null} */}
                 <MobNav/>
             </div>
